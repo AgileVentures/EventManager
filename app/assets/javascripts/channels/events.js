@@ -9,8 +9,9 @@ App.events = App.cable.subscriptions.create("EventsChannel", {
     console.log("disconnected");
   },
 
-  received: function(data) {
+  received: function(event) {
     // Called when there's incoming data on the websocket for this channel
-    console.log("received". data);
+    console.log("received", event);
+    $('body').append("<p>" + JSON.stringify(event) + "</p>");
   }
 });

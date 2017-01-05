@@ -2,6 +2,7 @@
 class EventsChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
+    stream_from "events"
   end
 
   def unsubscribed
