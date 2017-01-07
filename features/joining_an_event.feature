@@ -10,27 +10,9 @@ Feature: Joining the Event
   Background:
     Given an event exists
 
+  @javascript
   Scenario: see event status
     Given I visit the page for an event
     Then I should see "event not live"
     When the event goes live
-#    And I visit the page for an event
     Then I should see "event live"
-
-# ============================
-
-# Then(/I should see "(.*)"/) do |text|
-#   expect(page).to have_contents text
-# end
-
-# ============================
-
-
-# feature 'joining the event' do
-
-#   scenario 'join' do
-#     visit '/events'
-#     expect(page).to have_contents "event not live"
-#   end
-
-# end
