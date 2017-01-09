@@ -13,7 +13,4 @@ end
 When(/^the event goes live$/) do
   @event.live = true
   @event.save
-  ActionCable.server.broadcast 'events',
-                               event: @event.live,
-                               user: 'sam'
 end

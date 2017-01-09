@@ -22,11 +22,13 @@
 
 <p>
   <strong>Live:</strong>
-  <% if @event.live %>
-    event live
-  <% else %>
-    event not live
-  <% end%>
+  <span id="live">
+    <% if @event.live %>
+      event live
+    <% else %>
+      event not live
+    <% end%>
+  </span>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
