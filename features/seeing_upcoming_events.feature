@@ -5,10 +5,10 @@ Feature: Upcoming Event View
 
   Background:
     Given following events exist:
-      | name       | date       | time         | duration | live  |
-      | Standup1   | 2014/02/03 | 07:00:00 UTC | 150      | false |
-      | PP Session | 2019/02/07 | 10:00:00 UTC | 15       | false |
-      | Standup2   | 2014/01/03 | 07:00:00 UTC | 150      | false |
+      | name       | date                    | duration | live  |
+      | Standup1   | 2014/02/03 07:00:00 UTC | 150      | false |
+      | PP Session | 2019/02/07 10:00:00 UTC | 15       | false |
+      | Standup2   | 2014/01/03 07:00:00 UTC | 150      | false |
     Given the date is "2014/02/05 09:15:00 UTC"
 
   @javascript
