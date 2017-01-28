@@ -13,3 +13,7 @@ Given(/^the date is "([^"]*)"$/) do |jump_date|
   @jump_date = jump_date
   Timecop.travel(Time.parse(@jump_date))
 end
+
+Given(/^I click on the "([^"]*)" button$/) do |arg1|
+  click_button arg1
+end

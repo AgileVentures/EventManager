@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
+<hr>
+<%= form_tag '/events/range' do %>
+<%= check_box_tag 'filter', 'yes', true %>
+<%= datetime_field_tag 'start', @start_d, class: 'special_input' %>
+<%= select_tag 'start_time_tz', options_from_collection_for_select( TZInfo::Timezone.all, 'identifier', 'identifier', 'UTC'), { class: 'form-control', style: 'width:auto;' } %>
+<%= submit_tag "Send input" %>
+<% end %>
+<hr>
 
 <table>
   <thead>
@@ -21,7 +29,8 @@
         <td><%= event.duration %></td>
         <td><%= event.live %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Edit', edit_event_path(event)
+                 %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

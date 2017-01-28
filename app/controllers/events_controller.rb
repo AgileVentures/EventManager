@@ -4,7 +4,16 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.past_now
+    @start_datetime = Time.now
+    @start_d = @start_datetime.to_s[0..9] + 'T' + @start_datetime.to_s[11..18]
+    @events = Event.by_start_date(@start_datetime).latest
+  end
+
+  def range
+    s = params['start']
+    @start_d = s.to_s[0..9] + 'T' + s.to_s[11..18]
+    @events = Event.by_start_date(s).latest
+    render :index
   end
 
   # GET /events/1
@@ -69,6 +78,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :date, :duration, :live)
+      params.require(:event).permit(:name, :date, :end, :duration, :live)
     end
 end
