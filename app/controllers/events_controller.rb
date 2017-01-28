@@ -4,16 +4,10 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @start_datetime = Time.now
-    @start_d = @start_datetime.to_s[0..9] + 'T' + @start_datetime.to_s[11..18]
-    @events = Event.by_start_date(@start_datetime).latest
-  end
-
-  def range
-    s = params['start']
-    @start_d = s.to_s[0..9] + 'T' + s.to_s[11..18]
-    @events = Event.by_start_date(s).latest
-    render :index
+    @s = params['start']
+    @s = Time.now if @s == nil
+    @start_d = @s.to_s[0..9] + 'T' + @s.to_s[11..18]
+    @events = Event.by_start_date(@start_d).latest
   end
 
   # GET /events/1
