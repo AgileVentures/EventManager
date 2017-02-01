@@ -8,5 +8,5 @@ end
 
 When(/^the event goes live$/) do
   @event.live = true
-  @event.save
+  @event.save!
 end
