@@ -16,11 +16,12 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'capybara/rspec'
+
+Capybara.javascript_driver = :webkit_debug
+
 RSpec.configure do |config|
-  config.include Capybara::DSL  
-  Capybara.javascript_driver = :webkit_debug
-  Capybara.always_include_port = true
-  Capybara.default_host = "http://#{DEFAULT_HOST}"
+  config.include Capybara::DSL
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
