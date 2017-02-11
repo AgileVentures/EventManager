@@ -154,6 +154,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    phantomjs (2.1.1.0)
     poltergeist (1.13.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -248,6 +249,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  phantomjs
   poltergeist
   puma (!= 3.7.0)
   rails (~> 5.0.0, >= 5.0.1)
