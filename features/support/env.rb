@@ -9,6 +9,12 @@ require 'capybara/poltergeist'
 
 # Require to enable javascript in tests
 # See https://github.com/teampoltergeist/poltergeist
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, js_errors: false,
+                                    phantomjs: Phantomjs.path,
+                                    phantomjs_options: ['--ssl-protocol=tlsv1.2', '--ignore-ssl-errors=yes'])
+end
+
 Capybara.javascript_driver = :poltergeist
 
 # Required to test action cable.
