@@ -4,10 +4,17 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @s = params['start']
-    @s = Time.now if @s == nil
-    @start_d = @s.to_s[0..9] + 'T' + @s.to_s[11..18]
-    @events = Event.by_start_date(@start_d).latest
+    @events = Event.all
+    # @s = params['start']
+    # @s = Time.now if @s == nil
+    # @start_d = @s.to_s[0..9] + 'T' + @s.to_s[11..18]
+    # @events = Event.by_start_date(@start_d).latest
+  end
+
+  def example
+    require 'json'
+    require 'open-uri'
+    @data = JSON.parse(open("http://localhost:8567/events.json").read)
   end
 
   # GET /events/1
