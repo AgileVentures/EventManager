@@ -13,5 +13,6 @@ App.events = App.cable.subscriptions.create("EventsChannel", {
     // Called when there's incoming data on the websocket for this channel
     console.log("received", event);
     $('#live').text(event.live? "event live" : "event not live");
+    event.live? $('#live').addClass("live") : $('#live').removeClass("live");
   }
 });
