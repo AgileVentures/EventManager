@@ -373,3 +373,8 @@ end
 And(/^I debug$/) do
   byebug
 end
+
+
+And(/^we should see the style change for live$/) do
+  expect(page).to have_css '#live.live'
+end

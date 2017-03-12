@@ -16,3 +16,4 @@ Feature: Joining the Event
     Then I should see "event not live"
     When the event goes live
     Then I should see "event live"
+    And we should see the style change for live
