@@ -17,12 +17,7 @@
 
 <p>
   <strong>Live:</strong>
-  <span id="live">
-    <% if @event.live %>
-      event live
-    <% else %>
-      event not live
-    <% end%>
+  <span id="live" data-live="<%= @event.live %>">
   </span>
 </p>
 

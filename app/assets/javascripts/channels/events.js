@@ -14,5 +14,19 @@ App.events = App.cable.subscriptions.create("EventsChannel", {
     console.log("received", event);
     $('#live').text(event.live? "event live" : "event not live");
     event.live? $('#live').addClass("live") : $('#live').removeClass("live");
+
+
+    //var f = event.live? $('#live').addClass : $('#live').removeClass
+    //f.call($('#live'), "live")
+
+
+    //(event.live? addClass : removeClass).call($('#live'), "live")
+
+    //$('event#'+event.id).render(event)
   }
 });
+
+
+//Event Data --> erb
+//
+//Event Data --> (websocket) js
