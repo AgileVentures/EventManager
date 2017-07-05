@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/AgileVentures/EventManager.png?label=ready&title=Ready)](https://waffle.io/AgileVentures/EventManager?utm_source=badge)
 # EventManager
 A system for managing events and hangout participation - microservice API and basic UI
 
