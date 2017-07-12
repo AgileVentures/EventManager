@@ -20,3 +20,19 @@
 # Ignore Byebug command history file.
 .byebug_history
 .idea/*
+
+# compiled output
+/frontend/dist
+/frontend/tmp
+
+# dependencies
+/frontend/node_modules
+/frontend/bower_components
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log*
+testem.log
