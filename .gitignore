@@ -19,4 +19,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore gemset and ruby version
+.ruby-gemset
+.ruby-version
 .idea/*
