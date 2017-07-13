@@ -5,6 +5,21 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara/poltergeist'
+
+# Require to enable javascript in tests
+# See https://github.com/teampoltergeist/poltergeist
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, js_errors: false,
+                                    phantomjs: Phantomjs.path,
+                                    phantomjs_options: ['--ssl-protocol=tlsv1.2', '--ignore-ssl-errors=yes'])
+end
+
+Capybara.javascript_driver = :poltergeist
+
+# Required to test action cable.
+# See http://stackoverflow.com/questions/35897189/capybara-not-working-with-action-cable
+Capybara.server = :puma
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -55,4 +70,3 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
-
