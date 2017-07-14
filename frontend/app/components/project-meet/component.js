@@ -1,18 +1,29 @@
 import Ember from 'ember';
 import injectScript from 'ember-inject-script';
+import config from '../../config/environment';
 
-export default Ember.Component.extend({
+const ProjectMeetComponent = Ember.Component.extend({
+  jitsiUrl: config.APP.jitsiUrl,
+  jitsiDomain: config.APP.jitsiDomain,
   init: function() {
     this._super();
-    var url = "https://meet.jit.si/external_api.js";
-    injectScript(url).then (function() {
+    var theRoom = this.get('room');
+    var theWidth = this.get('width');
+    var theHeight = this.get('height');
+    var theUrl = this.get('jitsiUrl');
+    var theDomain = this.get('jitsiDomain');
+    injectScript(theUrl).then (function() {
       var domain = "meet.jit.si";
-      var room = "JitsiMeetAPIExample";
-      var width = 700;
-      var height = 700;
       var htmlElement = document.querySelector('#meet');
-      var api = new JitsiMeetExternalAPI(domain, room, width, height,
+      var api = new JitsiMeetExternalAPI(theDomain, theWidth, theHeight,
         htmlElement);
     });
   }
 });
+
+
+ProjectMeetComponent.reopenClass({
+  positionalParams: ['title', 'room', 'width', 'height']
+});
+
+export default ProjectMeetComponent;

@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 module.exports = function(environment) {
+
   var ENV = {
     modulePrefix: 'frontend',
     environment: environment,
@@ -20,6 +21,8 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      jitsiUrl: 'https://meet.jit.si/external_api.js',
+      jitsiDomain: 'meet.jit.si'
     }
   };
 
