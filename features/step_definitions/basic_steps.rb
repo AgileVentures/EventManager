@@ -369,7 +369,14 @@ Given(/^I am on a (.*)/) do |device|
   page.driver.headers = { 'User-Agent' => agent }
 end
 
-
 And(/^I debug$/) do
   byebug
+end
+
+And(/^we should see the style change for (not )?live$/) do |negation|
+  if negation
+    expect(page).not_to have_css '#live.live'
+  else
+    expect(page).to have_css '#live.live'
+  end
 end
